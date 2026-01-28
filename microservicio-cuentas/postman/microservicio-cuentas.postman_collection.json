@@ -1,0 +1,190 @@
+{
+  "info": {
+    "name": "Microservicio Cuentas - Local",
+    "_postman_id": "a1b2c3d4-accounts-local",
+    "description": "Colección para probar endpoints del microservicio de cuentas (local).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "GET /cuentas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/cuentas",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "cuentas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /cuentas/:id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/cuentas/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "cuentas",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /cuentas/socio/:socioId",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/cuentas/socio/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "cuentas",
+            "socio",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST /cuentas (crear cuenta)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"socioId\": 1,\n  \"numeroCuenta\": \"1234567890\",\n  \"tipoCuenta\": \"AHORRO\",\n  \"saldo\": 0.00\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/cuentas",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "cuentas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "PUT /cuentas/:id (actualizar)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"tipoCuenta\": \"CORRIENTE\",\n  \"activo\": true\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/cuentas/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "cuentas",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "DELETE /cuentas/:id",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/cuentas/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "cuentas",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST /cuentas/:id/retiro",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"monto\": 100.00\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/cuentas/1/retiro",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "cuentas",
+            "1",
+            "retiro"
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST /cuentas/:id/deposito",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"monto\": 150.00\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/cuentas/1/deposito",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "cuentas",
+            "1",
+            "deposito"
+          ]
+        }
+      }
+    }
+  ]
+}
